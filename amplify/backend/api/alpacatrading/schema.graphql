@@ -1,0 +1,5 @@
+type WatchList @model {
+  id: ID!
+  name: String!
+  contents: [String]
+}

@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-alpacatrading-dev-193138-authRole",
+      "UnauthRoleArn": "arn:aws:iam::665999853718:role/amplify-alpacatrading-dev-193138-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::665999853718:role/amplify-alpacatrading-dev-193138-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-alpacatrading-dev-193138-deployment",
+      "UnauthRoleName": "amplify-alpacatrading-dev-193138-unauthRole",
+      "StackName": "amplify-alpacatrading-dev-193138",
+      "StackId": "arn:aws:cloudformation:us-east-1:665999853718:stack/amplify-alpacatrading-dev-193138/28dba000-d47b-11eb-9c91-12b6545d058d",
+      "AmplifyAppId": "d10104nmw1z79z"
+    }
+  }
+}
