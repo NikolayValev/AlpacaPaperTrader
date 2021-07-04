@@ -1,8 +1,10 @@
 import React from 'react'
 import logo from './stock_logo.svg';
-import Dashboard from "./Dashboard";
+import Dashboard from "./views/Dashboard";
+import Layout from 'Layout';
 import './App.css';
 import { Component } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Card from "./components/Card/Card"
 const{Provider,Consumer} = React.createContext();
 
@@ -18,7 +20,13 @@ export default class App extends Component {
       <Provider value={this.state}>
         <div className="App">
           <p>Fuck you.</p>
-          <Dashboard/>
+          <BrowserRouter>
+    <Switch>
+      <Route path="/admin" component={Layout} />
+      <Redirect from="/" to="/admin/dashboard" />
+    </Switch>
+  </BrowserRouter>
+          {/*<Dashboard/>*/}
         </div>
       </Provider>
     );

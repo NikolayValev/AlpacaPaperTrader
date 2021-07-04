@@ -5,19 +5,19 @@ import ChartistGraph from "react-chartist";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
 // core components
-import GridItem from "./components/Grid/GridItem.js";
-import GridContainer from "./components/Grid/GridContainer.js";
-import Table from "./components/Table/Table.js";
-import Card from "./components/Card/Card.js";
-import CardHeader from "./components/Card/CardHeader.js";
-import CardIcon from "./components/Card/CardIcon.js";
-import CardBody from "./components/Card/CardBody.js";
-import CardFooter from "./components/Card/CardFooter.js";
-import Chart from "./components/Chart/Chart.js"
+import GridItem from "../components/Grid/GridItem.js";
+import GridContainer from "../components/Grid/GridContainer.js";
+import Table from "../components/Table/Table.js";
+import Card from "../components/Card/Card.js";
+import CardHeader from "../components/Card/CardHeader.js";
+import CardIcon from "../components/Card/CardIcon.js";
+import CardBody from "../components/Card/CardBody.js";
+import CardFooter from "../components/Card/CardFooter.js";
+import Chart from "../components/Chart/Chart.js"
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from '@material-ui/core/styles';
-import {dailySalesChart} from "./variables/charts.js"
-import styles from "./assets/jss/dashboard-react/views/dashboardStyle.js";
+import {dailySalesChart} from "../variables/charts.js"
+import styles from "../assets/jss/dashboard-react/views/dashboardStyle.js";
 
 const useStyles = makeStyles(styles);
 
