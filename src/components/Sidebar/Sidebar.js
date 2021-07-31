@@ -27,13 +27,21 @@ export default function Sidebar(props) {
   let links =(
     <List className={classes.list}>
       {routes.map((prop, key) => {
+        var listItemClasses;
+        listItemClasses = classNames({
+            [" " + classes[color]]: activeRoute(prop.layout + prop.path),
+          });
+          const whiteFontClasses = classNames({
+          [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
+        });
         return (
           <NavLink
             to={prop.layout + prop.path}
+            className={ classes.item}
             activeClassName="active"
             key={key}
           >
-            <ListItem button >
+            <ListItem button className={classes.itemLink + listItemClasses}>
               {typeof prop.icon === "string" ? (
                 <Icon>
                   {prop.icon}
@@ -53,8 +61,8 @@ export default function Sidebar(props) {
   )
 
   var brand = (
-    <div>
-        <div >
+    <div className={classes.logo}>
+        <div  className={classes.logoImage}>
           <img src={logo} alt="logo"/>
         </div>
         {logoText}
@@ -78,6 +86,33 @@ export default function Sidebar(props) {
              <NavbarLinks />
             {links}
           </div>
+          {image !== undefined ? (
+            <div
+              className={classes.background}
+              style={{ backgroundImage: "url(" + image + ")" }}
+            />
+          ) : null}
+        </Drawer>
+      </Hidden>
+      <Hidden smDown implementation="css">
+        <Drawer
+          anchor={props.rtlActive ? "right" : "left"}
+          variant="permanent"
+          open
+          classes={{
+            paper: classNames(classes.drawerPaper, {
+              [classes.drawerPaperRTL]: props.rtlActive,
+            }),
+          }}
+        >
+          {brand}
+          <div className={classes.sidebarWrapper}>{links}</div>
+          {image !== undefined ? (
+            <div
+              className={classes.background}
+              style={{ backgroundImage: "url(" + image + ")" }}
+            />
+          ) : null}
         </Drawer>
       </Hidden>
     </div>

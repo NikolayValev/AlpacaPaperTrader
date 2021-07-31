@@ -3,13 +3,18 @@ import { Switch, Route, Redirect } from "react-router-dom";
 //TODO Add PerfectScrollbar from "perfect-scrollbar";
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
 // core components
 import Navbar from "./components/Navbar/Navbar.js";
+import Footer from "./components/Footer/Footer.js";
 //import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import routes from "routes.js";
 import bgImage from "./assets/img/sidebar-2.jpg";
 import logo from "./assets/img/reactlogo.png"
+import styles from "./assets/jss/dashboard-react/layouts/adminStyle.js";
+
 let ps;
 
 const switchRoutes = (
@@ -29,15 +34,17 @@ const switchRoutes = (
     <Redirect from="/admin" to="/admin/dashboard" />
   </Switch>
 );
-
+const useStyles = makeStyles(styles);
 export default function Layout({...rest}) {
+  // styles
+  const classes = useStyles();
+  // ref to help us initialize PerfectScrollbar on windows devices
+  const mainPanel = React.createRef();
   // states and functions
   const [image, setImage] = React.useState(bgImage);
   const [color, setColor] = React.useState("blue");
   const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // ref to help us initialize PerfectScrollbar on windows devices
-  const mainPanel = React.createRef();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -67,7 +74,7 @@ export default function Layout({...rest}) {
   }, [mainPanel]);
 
   return(
-    <div>
+    <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
         logoText={"Mainata ti"}
@@ -78,15 +85,16 @@ export default function Layout({...rest}) {
         color={"purple"}
         {...rest}
       />
-      <div ref={mainPanel}>
+      <div className={classes.mainPanel} ref={mainPanel}>
         <Navbar
           routes={routes}
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
-        <div>
-          <div>{switchRoutes}</div>
+        <div className={classes.content}>
+          <div className={classes.container}>{switchRoutes}</div>
         </div>
+        <Footer />
       </div>
     </div>
   )
