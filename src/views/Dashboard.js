@@ -68,7 +68,7 @@ class Dashboard extends Component {
           </Card>
         </GridItem>
         <GridItem>
-          {/*<Chart/>
+          {/*<Chart/>*/}
         </GridItem>
       </GridContainer>
     </div>
